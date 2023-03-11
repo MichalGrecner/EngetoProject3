@@ -1,23 +1,56 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+import { getUsers } from './fetchUsers.js'
+import { showUsers } from './showUsers.js';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector('#counter'))
+
+
+const app = document.getElementById("app")
+const inputDIV = document.createElement("div")
+inputDIV.id = "inputCont";
+const input = document.createElement("input");
+input.id = "input";
+
+const btn = document.createElement("button");
+btn.id = "btn";
+btn.innerText="Filter results"
+
+
+app.appendChild(inputDIV)
+inputDIV.appendChild(input)
+inputDIV.appendChild(btn)
+
+
+
+
+const users =await getUsers();
+showUsers(users)
+
+
+btn.addEventListener("click", (() => {
+  console.log(input.value)
+
+   let filterObj= users.filter((item)=>item.name == input.value)
+
+  //let filterObj= users.filter((item)=>Object.values(item) == input.value)
+  
+  console.log("The filtered objects are:", filterObj)
+
+  //const filtered = users.filter(users.name == input.value)
+  // let filtered =""
+  // let result;
+  // for (const user of users){
+  //   const values = Object.values(user)
+  //   filtered = values.filter( user => user.name == input.value)
+  //   result = Object.fromEntries(filtered)
+  // }
+  
+  // console.log(filtered)
+  // console.log(result)
+}) )
+
+
+
+
+
+
