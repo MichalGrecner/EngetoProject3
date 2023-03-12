@@ -1,6 +1,7 @@
 import './style.css'
 import { getUsers } from './fetchUsers.js'
 import { showUsers } from './showUsers.js';
+import { filterUsers } from './filterUsers.js';
 
 
 
@@ -20,17 +21,22 @@ app.appendChild(inputDIV)
 inputDIV.appendChild(input)
 inputDIV.appendChild(btn)
 
-const users =await getUsers();
+export const users =await getUsers();
 showUsers(users)
 
 
-btn.addEventListener("click", (() => {
-  const filterUsers= users.filter((user)=>user.name.toLowerCase().includes(input.value.toLowerCase()))
-  const cont = document.getElementById("container")
-  cont.remove()
-  showUsers(filterUsers)
-}) 
-)
+
+
+//input subbmited either by clicking on button or pressing Enter
+btn.addEventListener("click",filterUsers)
+input.addEventListener("keypress",(e)=>{
+  if(e.key=="Enter") filterUsers();
+})
+
+
+
+
+
 
 
 
