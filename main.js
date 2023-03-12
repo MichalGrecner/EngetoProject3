@@ -13,41 +13,24 @@ input.id = "input";
 
 const btn = document.createElement("button");
 btn.id = "btn";
-btn.innerText="Filter results"
+btn.innerText="Filter users by name"
 
 
 app.appendChild(inputDIV)
 inputDIV.appendChild(input)
 inputDIV.appendChild(btn)
 
-
-
-
 const users =await getUsers();
 showUsers(users)
 
 
 btn.addEventListener("click", (() => {
-  console.log(input.value)
-
-   let filterObj= users.filter((item)=>item.name == input.value)
-
-  //let filterObj= users.filter((item)=>Object.values(item) == input.value)
-  
-  console.log("The filtered objects are:", filterObj)
-
-  //const filtered = users.filter(users.name == input.value)
-  // let filtered =""
-  // let result;
-  // for (const user of users){
-  //   const values = Object.values(user)
-  //   filtered = values.filter( user => user.name == input.value)
-  //   result = Object.fromEntries(filtered)
-  // }
-  
-  // console.log(filtered)
-  // console.log(result)
-}) )
+  const filterUsers= users.filter((user)=>user.name.toLowerCase().includes(input.value.toLowerCase()))
+  const cont = document.getElementById("container")
+  cont.remove()
+  showUsers(filterUsers)
+}) 
+)
 
 
 

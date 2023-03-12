@@ -7,7 +7,7 @@ export async function getUsers() {
     if(!response.ok) console.log("fetching users not ok")
     const users = await response.json();
     return users;
-  }catch{
-    console.log("fetching users not ok")
+  }catch(err){
+    console.log("fetching users not ok, error message: " + err)
   }
 }
