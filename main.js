@@ -21,8 +21,17 @@ app.appendChild(inputDIV)
 inputDIV.appendChild(input)
 inputDIV.appendChild(btn)
 
-export const users =await getUsers();
-showUsers(users)
+
+let users;
+getUsers()
+.then((res)=> {
+  users = res
+  showUsers(users)
+})
+
+
+
+
 
 
 
@@ -30,7 +39,7 @@ showUsers(users)
 //input subbmited either by clicking on button or pressing Enter
 btn.addEventListener("click",filterUsers)
 input.addEventListener("keypress",(e)=>{
-  if(e.key=="Enter") filterUsers();
+  if(e.key=="Enter") filterUsers(users);
 })
 
 
