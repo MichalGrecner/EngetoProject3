@@ -1,24 +1,23 @@
-
 const nameIcon = `<span class="material-symbols-outlined">
 person
 </span>`;
-const companyIcon=`<span class="material-symbols-outlined">
+const companyIcon = `<span class="material-symbols-outlined">
 apartment
 </span>`;
-const positionIcon=`<span class="material-symbols-outlined">
+const positionIcon = `<span class="material-symbols-outlined">
 badge
 </span>`;
-const phoneIcon=`<span class="material-symbols-outlined">
+const phoneIcon = `<span class="material-symbols-outlined">
 call
-</span>`
-const emailIcon=`<span class="material-symbols-outlined">
+</span>`;
+const emailIcon = `<span class="material-symbols-outlined">
 mail
 </span>`;
-const webIcon=`<span class="material-symbols-outlined">
+const webIcon = `<span class="material-symbols-outlined">
 language
 </span>`;
 
-function cardLine(parent, text, cls){
+function cardLine(parent, text, cls) {
   const parentElement = document.getElementById(parent);
   const line = document.createElement("p");
   line.classList.add(cls);
@@ -26,23 +25,30 @@ function cardLine(parent, text, cls){
   parentElement.appendChild(line);
 }
 
-
-export function drawUserCard(idIndex, img, name, company, position, phone, email, web){
-  
+export function drawUserCard(
+  idIndex,
+  img,
+  name,
+  company,
+  position,
+  phone,
+  email,
+  web
+) {
   const card = document.createElement("div");
   card.classList.add("card");
-  card.id = "card"+idIndex;
+  card.id = "card" + idIndex;
   container.appendChild(card);
 
   const textDiv = document.createElement("div");
-  textDiv.id="textDiv"+idIndex
-  textDiv.classList.add("textDiv")
-  
+  textDiv.id = "textDiv" + idIndex;
+  textDiv.classList.add("textDiv");
+
   const photo = document.createElement("img");
   photo.src = img;
 
   card.appendChild(photo);
-  card.appendChild(textDiv)
+  card.appendChild(textDiv);
   cardLine(textDiv.id, nameIcon + name, "nameLine");
   cardLine(textDiv.id, companyIcon + company, "companyLine");
   cardLine(textDiv.id, positionIcon + position, "positionLine");
