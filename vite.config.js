@@ -3,7 +3,5 @@ import { defineConfig } from 'vite'
 
 
 export default defineConfig({
-
-  base: '/ENGETO_PROJ3/',
-  
+  base: '/EngetoProject3/',
 })
