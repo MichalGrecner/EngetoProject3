@@ -37,7 +37,10 @@ getUsers()
 
 
 //input subbmited either by clicking on button or pressing Enter
-btn.addEventListener("click",filterUsers)
+btn.addEventListener("click",()=>{
+  filterUsers(users);
+})
+
 input.addEventListener("keypress",(e)=>{
   if(e.key=="Enter") filterUsers(users);
 })
