@@ -1,4 +1,4 @@
-import { showUsers } from "./showUsers.js";
+import { showUsers } from "../component/showUsers";
 
 export function filterUsers(users) {
   const filterUsers = users.filter((user) =>

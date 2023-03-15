@@ -74,8 +74,9 @@ body{
   color: var(--borderColor);
 }
 #btn:hover{
+  
   background-color:var(--ColorDark);
-  border-color: var(--ColorLight);
+  border: 2px solid var(--ColorLight);
   color:var(--ColorLight);
 }
 #btn:active{

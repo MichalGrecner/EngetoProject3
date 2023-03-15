@@ -1,6 +1,6 @@
 const url = "https://jsonplaceholder.typicode.com/users";
 
-export async function getUsers() {
+export async function fetchUsers() {
   try {
     const response = await fetch(url);
     if (!response.ok) console.log("fetching users not ok");

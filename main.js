@@ -1,7 +1,7 @@
 import "./style.css";
-import { getUsers } from "./fetchUsers.js";
-import { showUsers } from "./showUsers.js";
-import { filterUsers } from "./filterUsers.js";
+import { fetchUsers } from "./src/utils/fetchUsers.js";
+import { filterUsers } from "./src/utils/filterUsers.js";
+import { showUsers } from "./src/component/showUsers.js";
 
 const app = document.getElementById("app");
 const inputDIV = document.createElement("div");
@@ -13,12 +13,14 @@ const btn = document.createElement("button");
 btn.id = "btn";
 btn.innerText = "Filter users by name";
 
+
 app.appendChild(inputDIV);
 inputDIV.appendChild(input);
 inputDIV.appendChild(btn);
 
+//fetch users
 let users;
-getUsers().then((res) => {
+fetchUsers().then((res) => {
   users = res;
   showUsers(users);
 });
